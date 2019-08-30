@@ -1,0 +1,26 @@
+1.Write a script for finding the sum of used memory of
+
+RAM and Swap.
+
+free | awk '{print $2}' > f
+awk '{BEGIN{}{sum+=$1}END{print sum}}' f
+
+2.What is the syntax for setting the crontab to work on
+
+every Wednesday at 6 a.m?
+
+0 6 * * wed file.sh
+
+3.Install mailutils and set the configurations for sending
+
+mail.
+
+echo "Postfix Send-Only Server" | mail -s "Postfix Testing" linxubun@gmail.com
+
+
+4.How will you connect your MySQL on Ubuntu?(Learning
+
+exercise).
+service mysqld start 
+or
+/etc/init.d/mysqld start 

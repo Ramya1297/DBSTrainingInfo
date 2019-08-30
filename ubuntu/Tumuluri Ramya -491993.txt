@@ -1,0 +1,136 @@
+1. 1.I am in /etc directory and I want to go to my home directory which command should I use?
+A. cd B. cd ~ C. Both A and B D. none of these
+ans=c
+-----------
+2. Which command is used not to display the error message on shell
+A.command > &2 B. command 2> &1 C.command 2> &2 D.command 2> /dev/null
+ans= d
+-----------
+3.Which command is used to replace word ‘hello’ (already present in the file) with ‘hi’ at all
+places in a file ‘file1.txt’ and save the result in a new file ‘file2.txt’?
+A.sed ‘s/hello/hi/g’ file1.txt > file2.txt B.sed ‘s/hello/hi’ file1.txt > file2.txt
+C.sed ‘s/hello/hi/g’ file1.txt file2.txt D.sed ‘s/hello/hi’ file1.txt > file2.txt
+ans= a
+---------
+4.Which signal is generated when we press ctrl-Z?
+A.SIGKILL
+B.SIGSTOP
+C.SIGABRT
+D.SIGINT
+ans= b
+--------
+5.Which command is used see the list of users who are currently logged-in?
+A. login B. users C. who D. which
+ ans=b
+--------
+6.Which command is used to get the kernel version in Linux?
+A. uname -r B. uname -n C. uname -k D. uname -s
+ans= a
+-------
+7.Which command is used to delete the character before the cursor location in vi editor?
+A.x B.dd C.D D.X
+ans= d
+--------
+8. Which command is used to print all array indexes ?
+A. ${!array[@]} B.${array[@]} C. $!{array[@]} D.Both A and C
+ans=b
+-------
+9. ._______ command is used to take the backup in Unix
+A. backup B. cpio C. zip D. gzip
+ans=d
+--------
+10.Command to redirect stdout and stderr streams to log.txt file from script inside ?
+A."redir >log.txt 2>&1" B."redir >log.txt 2>1" C."exec >log.txt 2>&1" D. none of these
+ans=a
+--------
+11. Indicate the right option to search for anything not a letter or number
+A.grep ‘^[a-zA-Z0-9]’ B.grep ‘[^a-zA-Z0-9]’ C. Both A and B D. none of these
+ans=a
+---------
+12.What is the command to change the group ownership of a file?
+A. cgrp B. chgrp C. change D. group
+ans= b
+--------
+13.Sticky bit can be set using following permission
+A.0777 B.1744 C .2411 D. none of these
+ans=d
+--------
+14. I want to restart httpd service, which of following command should I use?
+A. sudo systemctl restart httpd 
+B.sudo service httpd restart
+C. Both A and B
+D. none of these
+ans= c
+-------
+15.How to check if previous command run successful ?
+A.last B.$? C. Both A and B D. none of these
+ans= b
+---------
+16. How to add integers a and b and assign to c ?
+A. c=`echo "$a+$b"|bc` B.c=$(a+b) C. Both A and B D. none of these
+ans= d
+---------
+17.Write a Shell script for monitoring disk space,when the usage is over 30% print an alert
+message 'Usage is over 30%'.
+#!/bin/bash
+df -H | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $5 }'|while read
+output;
+do
+usage=$(echo $output| awk '{print $1}'|cut -d'%' -f1)
+if [ $usage -gt 30 ]
+then
+echo "usage is over 30%"
+fi
+done
+----------
+18. Write a Shell script for creating a user.If user already exists, return 'user exists'
+#!/bin/bash
+echo "enter username"
+read USERID
+#....
+/bin/egrep  -i "^${USERID}:" /etc/passwd
+if [ $? -eq 0 ]; then
+           echo "User exists"
+else
+       sudo useradd $USERID
+fi
+---------
+19. Write a Shell script for checking internet connectivity
+#!/bin/bash
+echo -e "GET http://google.com HTTP/1.0\n\n" | nc google.com 80 > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Online"
+else
+    echo "Offline"
+fi
+or 
+#!/bin/bash
+if ping -q -c 1 -W 1 google.com>/dev/null;
+then
+echo "online"
+else
+echo "ofline"
+fi
+-------------
+20. Write a Shell script for a process/application to start,stop and restart.
+
+#!/bin/bash
+echo "enter process name"
+read process
+printf "choose action\n1.start\n2.stop\n3.restart\n"
+read action
+case $action in
+1)
+sudo service $process start
+;;
+2)
+sudo service $process stop
+;;
+3)
+sudo service $process restart
+;;
+*) echo "invalid option"
+;;
+esac
+
+----------------

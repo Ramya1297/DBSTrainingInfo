@@ -1,0 +1,31 @@
+1.What is Shared and unbindable mountpoints?
+
+
+2.Create a directory ‘dir1’ in which you have three files. All the file should have some texts related to banking.
+
+    Now count every occurrence of the term “bank” in all the files appearing under the directory ‘dir1’.
+
+grep -roh bank | wc -w
+
+3.What is the command to continuously monitor the log file for a service in running state?
+	top
+sudo tail -f /var/log/apache2/access.log
+
+4.What is Shell in Unix?Linux? Is Bash the only shell in Unix/Linux?
+A Shell provides you with an interface to the Unix system. It gathers input from you and executes programs based on that input. When a program finishes executing, it displays that program's output.
+The Bourne Shell has the following subcategories -
+
+Bourne shell (sh)
+Korn shell (ksh)
+Bourne Again shell (bash)
+POSIX shell (sh)
+The different C-type shells follow -
+
+C shell (csh)
+TENEX/TOPS C shell (tcsh)
+
+
+5.What is the command to print the name of the shell in which we work?
+echo $SHELL
+
+ 

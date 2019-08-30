@@ -1,0 +1,105 @@
+
+1.Write a SQL to update the “Female” instead of “f” and “Male” instead of “m” in Sex Column in single query. (Refer Below Table )
+update emp set sex= if(sex='f','Female','Male');
+2.Write a SQL to replace the NULL values in the region column with immediate previous region 
+update emp set region=if(region=null , select lag(region) from emp order by id,region);
+3. Write a SQL to produce Full Name of the employee and display them in descending manner based on Last Name. Refer Below table
+select concat(FirstName,' ',LastName) as FullName  from emp order by LastName desc;
+4.Write a SQL to fetch the first 3 character only from First Name and display them in CAPITAL
+Letters. Refer Above table 
+select upper(substr(FirstName,1,3)) from emp;
+5.Write a SQL to return all the columns and rows of the below table where Name of the user
+contains the following pattern “USER-” Refer below table
+select * from login where UserName like 'USER%';
+6.SELECT * FROM Orders where OrderDate => '2016-07-05';
+select * from orders where mon(orderdate)=7 and day(orderday)=5 and year(orderday)=2016;
+7.Write a SQL to fetch the Orderid, Product and Total Sales Amount except Product “P1” records.
+select o.Orderid,p.product,sum(p.salesAmount) from orderHeader o, OrderDetails p where o.HeaderId=p.HeaderId and p.product <> 'P1' group by p.product;
+8.Display the Total Sales Amount by weekday (Sun,Mon, Tue, …) wise
+select day(OrderDate) as y,sum(p.salesAmount) from orderHeader o, OrderDetails p where o.HeaderId=p.HeaderId  group by  y;
+9.Write a SQL to find No. of Orders and Sales Amount for each year?
+select year(OrderDate) as y,count(orderID),sum(p.salesAmount) from orderHeader o, OrderDetails p where o.HeaderId=p.HeaderId  group by  y;
+10.Write a SQL to find the product which sold more quantities
+select product from orderdetails group by products having sum(quantities)=(select max(q) from (select product as p,sum(quantities) as q from OrderDetails group by product) as t);
+------
+11.Write SQL to return “Number of records present in Table: Salesperson”
+select count(id) from salesperson;
+12.Write SQL to find the Names of Salespersons who are earning Salary lesser than 50000
+select name from salesperson where salary<50000;
+13.Delete Name from Sales Person table where salary < avg sal of all
+delete from salesperson where salary < (select avg(salary) from salesperson);
+14.Write SQL to classify Salespersons as “Below 40”, “Between 40-60” and “Above 60” based on their age and name the column as “Age Bucket”.
+alter table salesperson add column 'ageBucket' varchar(10);
+update salesperson set ageBucket=if(age<40,'Below 40',if(age>40 and age<60,'between 40-60,'Above 60'));
+16.Find out the youngest and oldest salesperson using a SQL Query
+select name from salesperson where age= (select name, min(age) from salesperson) or age= (select name, max(age) from salesperson);
+17.Return the ID of salesperson who executed Maximum number of Orders using SQL statement
+select sales_person_id from orders group by sales_person_id having count(*) = (select  count(*) as num from orders group by sales_person_id order by count(*) desc limit 1) ;
+18.Write SQL to find out the Total Order Amount and Number of Orders executed in the year of 1998
+select sum(amount),count(*) from orders where year(order_date)=1998;
+19.Find out the Month Name of Order Date for each order using SQL
+select month_name(order_date) from order;
+20.Select SalesPerson Name,total Salary with respect to sales person from sales person table where salary greater than 50000 order by salary descending.
+select name,sal from salesperson where salary>50000 order by salary desc;
+21.How to fetch data that are common in two query results?
+using the key word intersect
+22.Set SalesPerson_id in Order table as foreign key to the Id(PK) in SalesPerson table.
+alter table order set foreign key(SalesPerson) references to Salesperson(id); 
+23.Display the Salesperson who is getting 3rd least salary
+select * from salesperson order by sal limit 2,1;
+or
+select * from salesperson s1 where 2=(select count(distinct salary) from salesperson s2 where s2.salary<s1.salary);
+----------
+Create calendar table with Date,Weekday, Month number, Quarter and year using procedure and insert data into the table between start date and end date in same procedure
+create procedure spproc
+(
+@startdate date,
+@enddate date
+) create table calendar(cdate date,weekday varchar(3),monthno int,quarter varchar(8),year int)
+
+---------
+Part 3
+1 write a sql query to validate a email (Regular Expression)
+
+2 Delete duplicate rows and give the count of duplicates remove
+delete from table group by id having count(*)>1;
+3 What is NOT DETERMINISTIC in mariadb function parameter
+it means 
+4 What is the use of delimiter command ?
+
+5 How to represent Not null in symbol or operator ?
+
+6 Write a script to print the given string in row .-> Hello World ?
+H
+e
+l
+l
+0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

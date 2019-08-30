@@ -1,0 +1,33 @@
+1.Create a shell script such that 
+
+ 
+i)it takes a text file as an input
+
+
+ii)perform any regex operation using 
+
+       a)grep
+
+       b)sed
+
+iii)redirect the output to the same file.
+
+ 
+
+2.By using sed, how will you check the length of a line    from text file?
+
+ 
+
+3.Give an example for cut command.
+
+ 
+
+4. Use find command for locating a file/dir.
+
+ find /home -name "*.c"
+
+5.Write a shell script for getting the process id of process in running state
+
+
+
+$ echo "this is a test mail" | mail -s "Subject" -aFrom:Ramya\<ramya11297@gmail.com\> linxubun@gmail.com

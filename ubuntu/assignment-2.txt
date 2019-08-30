@@ -1,0 +1,31 @@
+.Consider an array like the below one
+
+1.Consider an array like the below one
+
+(Ubuntu Fedora Suse Linuxmint) 
+
+
+and find the index of the element Fedora
+
+ 
+
+2.What is the syntax used to cut copy paste in vim editor?
+
+ cut==press v from start point, d in endpoint 
+
+3.Search a character from a string
+
+ 
+
+    e.g. Input string ‘hello world’
+
+          Find the position of the character ‘r’
+
+
+ 
+
+4.Write a shell script for comparing the contents of  two files 
+
+ 
+
+5.Write a Shell script for getting word count of a file.If file is not exist in the path, then the script has to exit and return the error code.

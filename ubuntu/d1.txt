@@ -1,0 +1,20 @@
+Directory	Content
+bin	Essential command binaries
+boot	Static files of the boot loader
+dev	Device files
+etc	Host-specific system configuration
+home	User home directories
+lib	Essential shared libraries and kernel modules
+media	Contains mount points for replaceable media
+mnt	Mount point for mounting a file system temporarily
+proc	Virtual directory for system information
+root	Home directory for the root user
+run	Run-time variable data
+sbin	Essential system binaries
+sys	Virtual directory for system information
+tmp	Temporary files
+usr	Secondary hierarchy
+var	Variable data
+srv	Data for services provided by the system
+opt	Add-on application software packages
+The following is a list of important considerations regarding dire

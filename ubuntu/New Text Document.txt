@@ -1,0 +1,89 @@
+
+    <div class="container register">
+        <div class="row">
+                
+                
+                        <label>Enter your Account number</label> 
+                        <input type="text" [(ngModel)]="from_acc_num"/>
+                        <span style="color: red">{{from_acc_num|validateAccount}}</span> 
+                   
+                                       
+                        <label> Account number of receiver</label>
+                        <input type="text" #toacc [(ngModel)]="to_acc_num"/>
+                        <span style="color: red">{{toacc|differ:from_acc_num:to_acc_num}}</span> 
+                        
+                        <br>
+                         <label> Account number of receiver</label>
+                        <input type="text" #acc [(ngModel)]="check"/>
+                        <span style="color: red">{{acc|checkMatch:to_acc_num:check }}</span> 
+                        <br>
+                        
+                                       
+                        <label> Enter the amount</label>
+                        <input type="number" [(ngModel)]="amount"/><br><br>
+                      
+                        <br>
+                     
+                        <button class="btn btn-primary">Transfer</button>
+                        
+
+</div>
+</div>
+----------------
+<div class="container">
+        <form class="form-horizontal" role="form">
+            <h2>Fund Transfer</h2>
+            <div class="form-group">
+                <label for="from_acc_num" class="col-sm-3 control-label">Enter your Account number</label>
+                <div class="col-sm-9">
+                    <input type="text"  placeholder="1123560001" [(ngModel)]="from_acc_num" class="form-control" autofocus>
+                    <span style="color: red">{{from_acc_num|validateAccount}}</span> 
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="to_acc_num" class="col-sm-3 control-label"> Account number of receiver</label>
+                <div class="col-sm-9">
+                    <input type="text" placeholder="1123560001" #toacc [(ngModel)]="to_acc_num" class="form-control" autofocus>
+                    <span style="color: red">{{toacc|differ:from_acc_num:to_acc_num}}</span> 
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="check" class="col-sm-3 control-label">Re-Enter Account number of receiver </label>
+                <div class="col-sm-9">
+                    <input type="text"  placeholder="1123560001"  #acc [(ngModel)]="check" class="form-control" name= "email" >
+                    <span style="color: red">{{acc|checkMatch:to_acc_num:check }}</span> 
+                </div>
+            </div>
+            
+           
+            
+            <div class="form-group">
+                <label for="pamount" class="col-sm-3 control-label">Enter the amount </label>
+                <div class="col-sm-9">
+                    <input type="number"  placeholder=0 [(ngModel)]="amount" class="form-control">
+                   
+                </div>
+            </div>
+           
+             
+            
+    
+            <button type="submit" class="btn btn-primary btn-block">Transfer</button>
+        </form> <!-- /form -->
+    </div> <!-- ./container -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+    <script type="text/javascript">
+        $(function () {
+            $("#Create").click(function (e) {
+                if (confirm("Are you sure?")) {
+                    console.log('Form is submitting');
+                    $("#sampleform").submit();
+                } else {
+                    console.log('User clicked no.');
+                }
+            });
+        });
+    </script>
